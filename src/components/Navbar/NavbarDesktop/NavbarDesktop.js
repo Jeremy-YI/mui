@@ -7,7 +7,7 @@ import Actions from '../Action'
 const NavbarDesktop = ({ matches }) => {
   /**
    * AppbarContainer
-   * Header
+   * AppbarHeader
    * List
    */
   return (
@@ -18,12 +18,12 @@ const NavbarDesktop = ({ matches }) => {
         <ListItemText primary="Categories" />
         <ListItemText primary="Products" />
         <ListItemText primary="Contact Us" />
+        <ListItemButton>
+          <ListItemIcon>
+            <SearchIcon />
+          </ListItemIcon>
+        </ListItemButton>
       </MyList>
-      <ListItemButton>
-        <ListItemIcon>
-          <SearchIcon />
-        </ListItemIcon>
-      </ListItemButton>
       <Actions matches={matches} />
     </AppbarContainer>
   )

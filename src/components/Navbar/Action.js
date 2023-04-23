@@ -1,13 +1,14 @@
 import React from 'react'
 import { MyList } from './NavbarStyle'
-import { ListItemButton, ListItemIcon, Divider } from '@mui/material'
+import { Divider } from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import PersonIcon from '@mui/icons-material/Person'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import { Colors } from '../../styles/globalTheme'
 import {
   ActionIconsContainerDesktop,
   ActionIconsContainerMobile,
+  MyListItemIcon,
+  MyListItemButton,
 } from './NavbarStyle'
 
 const Actions = ({ matches }) => {
@@ -17,40 +18,24 @@ const Actions = ({ matches }) => {
   return (
     <Component>
       <MyList type="row">
-        <ListItemButton sx={{ justifyContent: 'center' }}>
-          <ListItemIcon
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+        <MyListItemButton>
+          <MyListItemIcon>
             <ShoppingCartIcon />
-          </ListItemIcon>
-        </ListItemButton>
+          </MyListItemIcon>
+        </MyListItemButton>
         <Divider orientation="vertical" flexItem />
-        <ListItemButton sx={{ justifyContent: 'center' }}>
-          <ListItemIcon
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              color: matches && Colors.secondary,
-            }}
-          >
+        <MyListItemButton>
+          <MyListItemIcon>
             <FavoriteIcon />
-          </ListItemIcon>
-        </ListItemButton>
+          </MyListItemIcon>
+        </MyListItemButton>
         <Divider orientation="vertical" flexItem />
-        <ListItemButton sx={{ justifyContent: 'center' }}>
-          <ListItemIcon
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              color: matches && Colors.secondary,
-            }}
-          >
+        <MyListItemButton>
+          <MyListItemIcon>
             <PersonIcon />
-          </ListItemIcon>
-        </ListItemButton>
+          </MyListItemIcon>
+        </MyListItemButton>
+        <Divider orientation="vertical" flexItem />
       </MyList>
     </Component>
   )
