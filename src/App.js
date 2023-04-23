@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { Box } from '@mui/system'
+import { Container, Typography } from '@mui/material'
+import { ThemeProvider } from '@mui/material/styles'
+import theme from './styles/globalTheme'
+import Appbar from './components/Navbar'
+import Banner from './components/banner/Banner'
+import Promotions from './components/promotions/Promotions'
+import Productions from './components/productions/Productions'
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    document.title = 'MUI - Home'
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <Container maxWidth="xl" sx={{ backgroundColor: '#fff' }}>
+        <Appbar />
+        <Banner />
+        <Promotions />
+        <Box display="flex" justifyContent="center" sx={{ padding: '4px' }}>
+          <Typography variant="h4">Our Product</Typography>
+        </Box>
+        <Productions />
+      </Container>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
