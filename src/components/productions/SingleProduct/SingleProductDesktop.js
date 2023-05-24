@@ -1,27 +1,20 @@
-import React from 'react'
-import { Stack, Tooltip, Typography } from '@mui/material'
+import React, { useState } from 'react'
+import { Stack, Tooltip } from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
 import FitScreenIcon from '@mui/icons-material/Fullscreen'
 import {
   Product,
-  ProductActionWrapper,
+  ProductActionsWrapper,
   ProductImage,
   ProductFavButton,
   ProductActionButton,
-  ProductCartButton,
-} from './ProductStyle'
+  ProductAddToCart,
+} from '../ProductStyle'
 import ProductMeta from './ProductMeta'
 
 const SingleProductDesktop = ({ product, matches }) => {
-  /**
-   * product
-   * image
-   * meat
-   * actions
-   * footer
-   */
-  const [showOptions, setShowOptions] = React.useState(false)
+  const [showOptions, setShowOptions] = useState(false)
 
   const handleMouseEnter = () => {
     setShowOptions(true)
@@ -39,11 +32,11 @@ const SingleProductDesktop = ({ product, matches }) => {
           <FavoriteIcon />
         </ProductFavButton>
         {(showOptions || matches) && (
-          <ProductCartButton show={showOptions} variant="contained">
+          <ProductAddToCart show={showOptions} variant="contained">
             Add to cart
-          </ProductCartButton>
+          </ProductAddToCart>
         )}
-        <ProductActionWrapper show={showOptions || matches}>
+        <ProductActionsWrapper show={showOptions}>
           <Stack direction={matches ? 'row' : 'column'}>
             <ProductActionButton>
               <Tooltip placement="left" title="share this product">
@@ -56,9 +49,9 @@ const SingleProductDesktop = ({ product, matches }) => {
               </Tooltip>
             </ProductActionButton>
           </Stack>
-        </ProductActionWrapper>
+        </ProductActionsWrapper>
       </Product>
-      <ProductMeta product={product} />
+      <ProductMeta product={product} matches={matches} />
     </>
   )
 }

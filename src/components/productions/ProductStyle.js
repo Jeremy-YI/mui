@@ -1,23 +1,23 @@
-import { styled } from '@mui/material'
-import { Box } from '@mui/system'
+import styled from '@emotion/styled'
 import { Button, IconButton } from '@mui/material'
-import { Colors } from '../../../styles/globalTheme'
-import { slideInBottom, slideInRight } from '../../../animations'
+import { Box } from '@mui/system'
+import { slideInBottom, slideInRight } from '../../animations'
+import { Colors } from '../../styles/globalTheme'
 
 export const Product = styled(Box)(({ theme }) => ({
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
   justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
   [theme.breakpoints.up('md')]: {
-    postition: 'relative',
+    position: 'relative',
   },
 }))
 
 export const ProductImage = styled('img')(({ src, theme }) => ({
-  src: `url${src}`,
+  src: `url(${src})`,
   width: '100%',
-  backgroundColor: Colors.light_gray,
+  background: Colors.light_gray,
   padding: '10px',
   [theme.breakpoints.down('md')]: {
     width: '80%',
@@ -26,8 +26,8 @@ export const ProductImage = styled('img')(({ src, theme }) => ({
 }))
 
 export const ProductActionButton = styled(IconButton)(() => ({
-  backgroundColor: Colors.white,
-  margin: '4px',
+  background: Colors.white,
+  margin: 4,
 }))
 
 export const ProductFavButton = styled(ProductActionButton)(
@@ -41,7 +41,9 @@ export const ProductFavButton = styled(ProductActionButton)(
   })
 )
 
-export const ProductCartButton = styled(Button)(({ show, theme }) => ({
+export const ProductAddToCart = styled(Button, {
+  shouldForwardProp: (prop) => prop !== 'show',
+})(({ show, theme }) => ({
   width: '120px',
   fontSize: '12px',
   [theme.breakpoints.up('md')]: {
@@ -57,14 +59,14 @@ export const ProductCartButton = styled(Button)(({ show, theme }) => ({
   opacity: 0.9,
 }))
 
-export const ProductMetaWrapper = styled(Box)(() => ({
+export const ProductMetaWrapper = styled(Box)(({ theme }) => ({
+  padding: 4,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  padding: '4px',
 }))
 
-export const ProductActionWrapper = styled(Box)(({ show, theme }) => ({
+export const ProductActionsWrapper = styled(Box)(({ show, theme }) => ({
   [theme.breakpoints.up('md')]: {
     display: show ? 'visible' : 'none',
     position: 'absolute',

@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material/styles'
 import { Container, Grid, useMediaQuery } from '@mui/material'
 import { products } from '../../data'
-import SingleProduct from './SingleProduct/SingleProduct'
+import SingleProduct from './SingleProduct/SingleProductMobile'
 import SingleProductDesktop from './SingleProduct/SingleProductDesktop'
 
 const Productions = () => {
@@ -15,7 +15,7 @@ const Productions = () => {
       sm={4}
       md={4}
       display="flex"
-      flexDirection={'column'}
+      flexDirection="column"
       alignItems="center"
     >
       {matches ? (

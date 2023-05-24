@@ -15,16 +15,18 @@ mui components
 
 ## 2. appbar ✅
 
-## 3. banner ✅
+## 3. banner 横幅标语 ✅
 
-## 4. Custom slider ✅
+## 4. Custom slider 滑动器 ✅
 
 ## 5. Adding product grid ✅
 
-## 6 Custom MUI
+## 6 Custom MUI ✅
 
-## 7. adding footer
+npm install polished
 
-## 8. adding drawer
+## 7. adding footer ✅
 
-## 9. Dialog
+## 8. adding drawer 抽屉 ✅
+
+## 9. Dialog 对话框 ✅ -product details

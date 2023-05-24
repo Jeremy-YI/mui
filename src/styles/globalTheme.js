@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles'
+import { darken, lighten } from 'polished'
 
 /**
 xs: 0,
@@ -50,6 +51,44 @@ const theme = createTheme({
       defaultProps: {
         disableRipple: true,
         disableElevation: true,
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          width: '250px',
+          backgroundColor: Colors.primary,
+          color: Colors.secondary,
+          borderRadius: '0px 100px 20px 0px',
+          borderRight: `1px solid ${Colors.secondary}`,
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          backgroundColor: lighten(0.2, Colors.primary),
+        },
+      },
+    },
+
+    MyShopButton: {
+      styleOverrides: {
+        root: {
+          color: Colors.white,
+        },
+        primary: {
+          backgroundColor: Colors.primary,
+          '&:hover': {
+            backgroundColor: lighten(0.05, Colors.primary),
+          },
+        },
+        secondary: {
+          backgroundColor: Colors.secondary,
+          '&:hover': {
+            backgroundColor: lighten(0.05, Colors.secondary),
+          },
+        },
       },
     },
   },

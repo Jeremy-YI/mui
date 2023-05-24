@@ -5,42 +5,41 @@ import ShareIcon from '@mui/icons-material/Share'
 import FitScreenIcon from '@mui/icons-material/Fullscreen'
 import {
   Product,
-  ProductActionWrapper,
+  ProductActionsWrapper,
   ProductImage,
   ProductFavButton,
+  ProductAddToCart,
   ProductActionButton,
-  ProductCartButton,
-} from './ProductStyle'
+} from '../ProductStyle'
 import ProductMeta from './ProductMeta'
+import UseDialogModal from '../ProductionDetails/UseDialogModal'
+import ProductionDetails from '../ProductionDetails/ProductionDetails'
 
 const SingleProduct = ({ product, matches }) => {
-  /**
-   * product
-   * image
-   * meat
-   * actions
-   * footer
-   */
+  const [ProductDetailDialog, showProductDetailDialog, closeProductDialog] =
+    UseDialogModal(ProductionDetails)
+
   return (
     <>
       <Product>
         <ProductImage src={product.image} />
         <ProductMeta product={product} matches={matches} />
-        <ProductActionWrapper>
-          <Stack direction="row">
+        <ProductActionsWrapper>
+          <Stack direction={matches ? 'row' : 'column'}>
             <ProductFavButton isfav={0}>
               <FavoriteIcon />
             </ProductFavButton>
             <ProductActionButton>
               <ShareIcon color="primary" />
             </ProductActionButton>
-            <ProductActionButton>
+            <ProductActionButton onClick={() => showProductDetailDialog()}>
               <FitScreenIcon color="primary" />
             </ProductActionButton>
           </Stack>
-        </ProductActionWrapper>
+        </ProductActionsWrapper>
       </Product>
-      <ProductCartButton variant="contained">Add to card</ProductCartButton>
+      <ProductAddToCart variant="contained">Add to card</ProductAddToCart>
+      <ProductDetailDialog product={product} />
     </>
   )
 }

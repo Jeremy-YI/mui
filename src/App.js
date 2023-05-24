@@ -7,6 +7,10 @@ import Appbar from './components/Navbar'
 import Banner from './components/banner/Banner'
 import Promotions from './components/promotions/Promotions'
 import Productions from './components/productions/Productions'
+import Footer from './components/footer/Footer'
+import AppDrawer from './components/drawer/AppDrawer'
+import SearchBox from './components/searchBar/SearchBox'
+import { UIProvider } from './context'
 
 const App = () => {
   useEffect(() => {
@@ -15,13 +19,18 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="xl" sx={{ backgroundColor: '#fff' }}>
-        <Appbar />
-        <Banner />
-        <Promotions />
-        <Box display="flex" justifyContent="center" sx={{ padding: '4px' }}>
-          <Typography variant="h4">Our Product</Typography>
-        </Box>
-        <Productions />
+        <UIProvider>
+          <Appbar />
+          <Banner />
+          <Promotions />
+          <Box display="flex" justifyContent="center" sx={{ padding: '4px' }}>
+            <Typography variant="h4">Our Product</Typography>
+          </Box>
+          <Productions />
+          <Footer />
+          <AppDrawer />
+          <SearchBox />
+        </UIProvider>
       </Container>
     </ThemeProvider>
   )

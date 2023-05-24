@@ -6,11 +6,12 @@ import {
   BannerTitle,
   BannerImage,
   BannerDescription,
+  BannerShopButton,
 } from './BannerStyle'
 
 const Banner = () => {
   const theme = useTheme()
-  // const matches = useMediaQuery(theme.breakpoints.down('md'))
+  const matches = useMediaQuery(theme.breakpoints.down('md'))
   return (
     <BannerContainer>
       <BannerImage src="/images/banner/banner.png" />
@@ -21,6 +22,7 @@ const Banner = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
           fermentum, nisl sit amet aliquam tincidunt, nunc nisl luctus nisl, nec
         </BannerDescription>
+        <BannerShopButton variant="contained">Shop Now</BannerShopButton>
       </BannerContent>
     </BannerContainer>
   )
